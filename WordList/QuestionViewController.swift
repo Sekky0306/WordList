@@ -9,6 +9,16 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
+    
+    @IBOutlet var nextButton: UIButton!
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answerLabel: UILabel!
+    
+    var isAnswered: Bool = false
+    
+    var wordArray: [AnyObject] = []
+    
+    var shuffledWordArray: [AnyObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
