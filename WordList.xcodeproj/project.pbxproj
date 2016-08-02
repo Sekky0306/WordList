@@ -14,6 +14,10 @@
 		3E38210F1D4F3D9F00B169D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E38210D1D4F3D9F00B169D7 /* LaunchScreen.xib */; };
 		3E38211B1D4F3D9F00B169D7 /* WordListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38211A1D4F3D9F00B169D7 /* WordListTests.swift */; };
 		3E3821251D4F3ED900B169D7 /* WordList素材 in Resources */ = {isa = PBXBuildFile; fileRef = 3E3821241D4F3ED900B169D7 /* WordList素材 */; };
+		3ECFD7381D502254005E8863 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFD7371D502254005E8863 /* QuestionViewController.swift */; };
+		3ECFD73A1D502A31005E8863 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFD7391D502A31005E8863 /* FinishViewController.swift */; };
+		3ECFD73E1D502A7B005E8863 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFD73D1D502A7B005E8863 /* AddViewController.swift */; };
+		3ECFD7401D502CA0005E8863 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFD73F1D502CA0005E8863 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		3E3821191D4F3D9F00B169D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E38211A1D4F3D9F00B169D7 /* WordListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListTests.swift; sourceTree = "<group>"; };
 		3E3821241D4F3ED900B169D7 /* WordList素材 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "WordList素材"; sourceTree = "<group>"; };
+		3ECFD7371D502254005E8863 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		3ECFD7391D502A31005E8863 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		3ECFD73D1D502A7B005E8863 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		3ECFD73F1D502CA0005E8863 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 				3E3821081D4F3D9F00B169D7 /* Main.storyboard */,
 				3E38210B1D4F3D9F00B169D7 /* Images.xcassets */,
 				3E38210D1D4F3D9F00B169D7 /* LaunchScreen.xib */,
+				3ECFD7371D502254005E8863 /* QuestionViewController.swift */,
+				3ECFD7391D502A31005E8863 /* FinishViewController.swift */,
+				3ECFD73D1D502A7B005E8863 /* AddViewController.swift */,
+				3ECFD73F1D502CA0005E8863 /* ListTableViewController.swift */,
 				3E3821241D4F3ED900B169D7 /* WordList素材 */,
 				3E3821021D4F3D9F00B169D7 /* Supporting Files */,
 			);
@@ -217,7 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E3821071D4F3D9F00B169D7 /* ViewController.swift in Sources */,
+				3ECFD73A1D502A31005E8863 /* FinishViewController.swift in Sources */,
+				3ECFD73E1D502A7B005E8863 /* AddViewController.swift in Sources */,
+				3ECFD7401D502CA0005E8863 /* ListTableViewController.swift in Sources */,
 				3E3821051D4F3D9F00B169D7 /* AppDelegate.swift in Sources */,
+				3ECFD7381D502254005E8863 /* QuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +429,7 @@
 				3E3821201D4F3D9F00B169D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E3821211D4F3D9F00B169D7 /* Build configuration list for PBXNativeTarget "WordListTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +438,7 @@
 				3E3821231D4F3D9F00B169D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
