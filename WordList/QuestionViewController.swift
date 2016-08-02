@@ -19,16 +19,61 @@ class QuestionViewController: UIViewController {
     var wordArray: [AnyObject] = []
     
     var shuffledWordArray: [AnyObject] = []
+    
+    var nowNumber: Int = 0
+    
+    let saveData = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        answerLabel.text = ""
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(animated: Bool) {
+        wordArray = saveData.arrayForKey("WORD")!
+        shuffle()
+        questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
+        
+//        func shuffle() {
+//            while wordArray.count > 0 {
+//                let index = Int(rand()) %  wordArray.count
+//                shuffledWordArray.append(wordArray[index])
+//            }
+//        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func shuffle() {
+        while wordArray.count > 0 {
+            let index = Int(rand()) %  wordArray.count
+            shuffledWordArray.append(wordArray[index])
+        }
+    }
+    @IBAction func nextButtonPushed() {
+        if isAnswered{
+            nowNumber++
+            answerLabel.text = ""
+            if nowNumber < shuffledWordArray.count {
+                questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
+                
+                isAnswered = false
+                nextButton.setTitle("答えを表示", forState: UIControlState.Normal)
+                
+            }else{
+                answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
+                
+                isAnswered = true
+                
+                nextButton.setTitle("次へ", forState: UIControlState.Normal)
+            }
+            
+        }
     }
     
 
