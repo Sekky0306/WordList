@@ -16,7 +16,7 @@ class QuestionViewController: UIViewController {
     
     var isAnswered: Bool = false
     
-    var wordArray: [AnyObject] = []
+    var wordArray = []
     
     var shuffledWordArray: [AnyObject] = []
     
@@ -53,6 +53,10 @@ class QuestionViewController: UIViewController {
         while wordArray.count > 0 {
             let index = Int(rand()) %  wordArray.count
             shuffledWordArray.append(wordArray[index])
+            if var wordArr = wordArray as? Array<AnyObject>{
+                wordArr.removeAtIndex(index)
+            }
+//            wordArray.removeAtIndex(index)
         }
     }
     @IBAction func nextButtonPushed() {

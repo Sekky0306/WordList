@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var englishTextField: UITextField!
     @IBOutlet var japaneseTextField: UITextField!
@@ -19,12 +19,24 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        englishTextField.delegate = self
+        japaneseTextField.delegate = self
+        
+        
         // Do any additional setup after loading the view.
         if SaveData.objectForKey("WORD") != nil {
             wordArray = SaveData.objectForKey("WORD") as! Array
         }
     }
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        
+        return true
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,19 +50,21 @@ class AddViewController: UIViewController {
         SaveData.setObject(wordArray, forKey: "WORD")
         
         let alert = UIAlertController(
-        title: "保存完了",
+            title: "保存完了",
             message: "単語の登録が完了しました",
             preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(
-        UIAlertAction(
-        title: "OK", style: UIAlertActionStyle.Default,
-            handler: nil)
+            UIAlertAction(
+                title: "OK",
+                style: UIAlertActionStyle.Default,
+                handler: nil
+            )
         )
         self.presentViewController(alert, animated: true, completion: nil)
         englishTextField.text = ""
         japaneseTextField.text = ""
     }
-    
+
 
     /*
     // MARK: - Navigation
