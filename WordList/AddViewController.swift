@@ -9,16 +9,46 @@
 import UIKit
 
 class AddViewController: UIViewController {
+    
+    @IBOutlet var englishTextField: UITextField!
+    @IBOutlet var japaneseTextField: UITextField!
+    
+    var wordArray = [Dictionary<String,String>]()
+    let SaveData = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if SaveData.objectForKey("WORD") != nil {
+            wordArray = SaveData.objectForKey("WORD") as! Array
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    @IBAction func saveWord(){
+        let wordDictionary =
+        ["english": englishTextField.text!,"japanese":japaneseTextField.text!]
+        
+        wordArray.append(wordDictionary)
+        SaveData.setObject(wordArray, forKey: "WORD")
+        
+        let alert = UIAlertController(
+        title: "保存完了",
+            message: "単語の登録が完了しました",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(
+        UIAlertAction(
+        title: "OK", style: UIAlertActionStyle.Default,
+            handler: nil)
+        )
+        self.presentViewController(alert, animated: true, completion: nil)
+        englishTextField.text = ""
+        japaneseTextField.text = ""
     }
     
 
