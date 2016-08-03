@@ -16,7 +16,7 @@ class QuestionViewController: UIViewController {
     
     var isAnswered: Bool = false
     
-    var wordArray = []
+    var wordArray: [AnyObject] = []
     
     var shuffledWordArray: [AnyObject] = []
     
@@ -28,6 +28,7 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         answerLabel.text = ""
 
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -53,20 +54,17 @@ class QuestionViewController: UIViewController {
         while wordArray.count > 0 {
             let index = Int(rand()) %  wordArray.count
             shuffledWordArray.append(wordArray[index])
-            if var wordArr = wordArray as? Array<AnyObject>{
-                wordArr.removeAtIndex(index)
-            }
-//            wordArray.removeAtIndex(index)
+            wordArray.removeAtIndex(index)
         }
     }
     @IBAction func nextButtonPushed() {
-        if isAnswered{
+        if isAnswered == false{
             nowNumber++
             answerLabel.text = ""
             if nowNumber < shuffledWordArray.count {
                 questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
                 
-                isAnswered = false
+//                isAnswered = false
                 nextButton.setTitle("答えを表示", forState: UIControlState.Normal)
                 
             }else{
