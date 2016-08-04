@@ -35,7 +35,7 @@ class QuestionViewController: UIViewController {
         wordArray = saveData.arrayForKey("WORD")!
         shuffle()
         questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
-        
+//        answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
 //        func shuffle() {
 //            while wordArray.count > 0 {
 //                let index = Int(rand()) %  wordArray.count
@@ -63,9 +63,13 @@ class QuestionViewController: UIViewController {
             answerLabel.text = ""
             if nowNumber < shuffledWordArray.count {
                 questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
+                answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
                 
-//                isAnswered = false
+                isAnswered = false
                 nextButton.setTitle("答えを表示", forState: UIControlState.Normal)
+            }else{
+                self.performSegueWithIdentifier("toFinishView", sender: nil)
+            }
                 
             }else{
                 answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
@@ -75,7 +79,7 @@ class QuestionViewController: UIViewController {
                 nextButton.setTitle("次へ", forState: UIControlState.Normal)
             }
             
-        }
+        
     }
     
 
