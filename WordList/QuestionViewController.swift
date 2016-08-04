@@ -58,12 +58,12 @@ class QuestionViewController: UIViewController {
         }
     }
     @IBAction func nextButtonPushed() {
-        if isAnswered == false{
+        if isAnswered {
             nowNumber++
             answerLabel.text = ""
             if nowNumber < shuffledWordArray.count {
                 questionLabel.text = shuffledWordArray[nowNumber]["english"] as? String
-                answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
+//                answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
                 
                 isAnswered = false
                 nextButton.setTitle("答えを表示", forState: UIControlState.Normal)
@@ -73,7 +73,7 @@ class QuestionViewController: UIViewController {
                 
             }else{
                 answerLabel.text = shuffledWordArray[nowNumber]["japanese"] as? String
-                
+            
                 isAnswered = true
                 
                 nextButton.setTitle("次へ", forState: UIControlState.Normal)
